@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+import { AuthProvider } from './context/AuthContext';
+import AppRoutes from './routes/AppRoutes';
 import './App.css';
+import './styles/global.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#0e6e72',
+          colorInfo: '#0e6e72',
+          borderRadius: 10,
+          colorBgLayout: '#f5f7f9',
+          colorTextBase: '#0f2b2f',
+          fontFamily: "'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif",
+        },
+      }}
+    >
+      <BrowserRouter>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </BrowserRouter>
+    </ConfigProvider>
   );
 }
 
