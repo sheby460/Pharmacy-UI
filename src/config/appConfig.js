@@ -7,5 +7,12 @@ export const appConfig = {
       logout: process.env.REACT_APP_API_ENDPOINT_LOGOUT,
       register: process.env.REACT_APP_API_ENDPOINT_REGISTER,
     },
-  },
+    supplier: {
+      index: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_INDEX,
+      show: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_SHOW,
+      store: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_STORE,
+      update: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_UPDATE,
+      destroy: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_DESTROY,
+    },
+  }
 };

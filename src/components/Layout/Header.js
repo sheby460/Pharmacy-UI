@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Avatar, Dropdown, Space, Typography, Badge } from 'antd';
-import { 
-  MenuFoldOutlined, 
+import {
+  MenuFoldOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
   LogoutOutlined,
@@ -42,7 +42,7 @@ const Header = ({ collapsed, setCollapsed }) => {
   };
 
   return (
-    <AntHeader style={{ 
+    <AntHeader style={{
       padding: 0,
       background: '#fff',
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
@@ -68,23 +68,23 @@ const Header = ({ collapsed, setCollapsed }) => {
         <Badge count={5} size="small">
           <BellOutlined style={{ fontSize: 18, cursor: 'pointer' }} />
         </Badge>
-        
-        <Dropdown 
-          menu={{ items: userMenuItems, onClick: handleMenuClick }} 
+
+        <Dropdown
+          menu={{ items: userMenuItems, onClick: handleMenuClick }}
           trigger={['click']}
           placement="bottomRight"
         >
           <Space style={{ cursor: 'pointer' }}>
-            <Avatar 
-              icon={<UserOutlined />} 
-              style={{ 
+            <Avatar
+              icon={<UserOutlined />}
+              style={{
                 backgroundColor: '#1890ff',
                 cursor: 'pointer'
-              }} 
+              }}
             />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Text strong style={{ lineHeight: 1.2 }}>
-                {user?.name || 'John Doe'}
+                {user?.fname} {user?.lname}
               </Text>
               <Text type="secondary" style={{ fontSize: 12 }}>
                 {user?.role || 'Administrator'}
