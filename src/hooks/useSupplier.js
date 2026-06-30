@@ -25,10 +25,10 @@ export const useSuppliers = () => {
   }, [fetchSuppliers]);
 
   const filteredSuppliers = suppliers.filter((supplier) =>
-    supplier.name?.toLowerCase().includes(searchText.toLowerCase()) ||
-    supplier.email?.toLowerCase().includes(searchText.toLowerCase()) ||
-    supplier.phone?.includes(searchText) ||
-    supplier.contact_person?.toLowerCase().includes(searchText.toLowerCase())
+    supplier.supplier_name?.toLowerCase().includes(searchText.toLowerCase()) ||
+    supplier.location?.toLowerCase().includes(searchText.toLowerCase()) ||
+    supplier.address?.includes(searchText) ||
+    supplier.contacts?.toLowerCase().includes(searchText.toLowerCase())
   );
 
   const totalSuppliers = suppliers.length;

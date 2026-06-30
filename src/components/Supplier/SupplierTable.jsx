@@ -30,115 +30,120 @@ const SupplierTable = ({
   onAdd,
   searchText,
 }) => {
-  const columns = [
-    {
-      title: "Supplier",
-      dataIndex: "name",
-      key: "name",
-      render: (name, record) => (
+ const columns = [
+  {
+    title: "Supplier",
+    dataIndex: "supplier_name",
+    key: "supplier_name",
+    render: (name, record) => (
+      <Space>
+        <Avatar
+          style={{
+            backgroundColor: "#0e6e72",
+            verticalAlign: "middle",
+          }}
+        >
+          {name?.charAt(0)?.toUpperCase()}
+        </Avatar>
+
+        <div>
+          <div style={{ fontWeight: 500 }}>{name}</div>
+
+          {record.tax_ID && (
+            <Text type="secondary" style={{ fontSize: 12 }}>
+              <IdcardOutlined /> Tax ID: {record.tax_ID}
+            </Text>
+          )}
+        </div>
+      </Space>
+    ),
+    sorter: (a, b) =>
+      (a.supplier_name || "").localeCompare(
+        b.supplier_name || ""
+      ),
+  },
+
+  {
+    title: "Contacts",
+    dataIndex: "contacts",
+    key: "contacts",
+    render: (contacts) =>
+      contacts ? (
         <Space>
-          <Avatar
-            style={{
-              backgroundColor: '#0e6e72',
-              verticalAlign: 'middle',
-            }}
-            size="default"
-          >
-            {name?.charAt(0).toUpperCase()}
-          </Avatar>
-          <div>
-            <div style={{ fontWeight: 500 }}>{name}</div>
-            {record.tax_id && (
-              <Text type="secondary" style={{ fontSize: 12 }}>
-                <IdcardOutlined /> Tax ID: {record.tax_id}
-              </Text>
-            )}
-          </div>
+          <PhoneOutlined />
+          {contacts}
         </Space>
+      ) : (
+        "—"
       ),
-      sorter: (a, b) => a.name?.localeCompare(b.name),
-    },
-    {
-      title: "Contact Person",
-      dataIndex: "contact_person",
-      key: "contact_person",
-      render: (contact) => contact || "—",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-      render: (email) => (
-        email ? (
-          <a href={`mailto:${email}`} style={{ color: '#0e6e72' }}>
-            <MailOutlined /> {email}
-          </a>
-        ) : "—"
+  },
+
+  {
+    title: "Location",
+    dataIndex: "location",
+    key: "location",
+    render: (location) =>
+      location ? (
+        <Space>
+          <EnvironmentOutlined />
+          {location}
+        </Space>
+      ) : (
+        "—"
       ),
-    },
-    {
-      title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
-      render: (phone) => (
-        phone ? (
-          <a href={`tel:${phone}`}>
-            <PhoneOutlined /> {phone}
-          </a>
-        ) : "—"
+  },
+
+  {
+    title: "Address",
+    dataIndex: "address",
+    key: "address",
+    render: (address) =>
+      address ? (
+        <Tooltip title={address}>
+          <Text ellipsis style={{ maxWidth: 200 }}>
+            {address}
+          </Text>
+        </Tooltip>
+      ) : (
+        "—"
       ),
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-      render: (address) => (
-        address ? (
-          <Tooltip title={address}>
-            <Space>
-              <EnvironmentOutlined />
-              <Text ellipsis style={{ maxWidth: 150 }}>
-                {address}
-              </Text>
-            </Space>
-          </Tooltip>
-        ) : "—"
-      ),
-    },
-    {
-      title: "Actions",
-      key: "actions",
-      width: 120,
-      render: (_, record) => (
-        <Space size="small">
-          <Tooltip title="Edit">
+  },
+
+  {
+    title: "Actions",
+    key: "actions",
+    width: 120,
+    render: (_, record) => (
+      <Space size="small">
+        <Tooltip title="Edit">
+          <Button
+            type="text"
+            icon={<EditOutlined />}
+            onClick={() => onEdit(record)}
+            style={{ color: "#0e6e72" }}
+          />
+        </Tooltip>
+
+        <Popconfirm
+          title="Delete Supplier"
+          description={`Are you sure you want to delete "${record.supplier_name}"?`}
+          onConfirm={() => onDelete(record.id)}
+          okText="Yes"
+          cancelText="No"
+          okButtonProps={{ danger: true }}
+        >
+          <Tooltip title="Delete">
             <Button
               type="text"
-              icon={<EditOutlined />}
-              onClick={() => onEdit(record)}
-              style={{ color: '#0e6e72' }}
+              danger
+              icon={<DeleteOutlined />}
             />
           </Tooltip>
-          <Popconfirm
-            title="Delete Supplier"
-            description={`Are you sure you want to delete "${record.name}"?`}
-            onConfirm={() => onDelete(record.id)}
-            okText="Yes"
-            cancelText="No"
-            okButtonProps={{ danger: true }}
-          >
-            <Tooltip title="Delete">
-              <Button
-                type="text"
-                danger
-                icon={<DeleteOutlined />}
-              />
-            </Tooltip>
-          </Popconfirm>
-        </Space>
-      ),
-    },
-  ];
+        </Popconfirm>
+      </Space>
+    ),
+  },
+];
 
   return (
     <Table

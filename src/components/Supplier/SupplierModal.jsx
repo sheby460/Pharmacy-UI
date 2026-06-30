@@ -78,7 +78,7 @@ const SupplierModal = ({
       >
         <Form.Item
           label={<Text strong style={{ color: '#0f2b2f' }}>Supplier Name</Text>}
-          name="name"
+          name="supplier_name"
           rules={[
             { required: true, message: "Please enter supplier name" },
             { max: 100, message: "Name cannot exceed 100 characters" },
@@ -92,11 +92,11 @@ const SupplierModal = ({
         </Form.Item>
 
         <Form.Item
-          label={<Text strong style={{ color: '#0f2b2f' }}>Contact Person</Text>}
-          name="contact_person"
+          label={<Text strong style={{ color: '#0f2b2f' }}>Supplier Location</Text>}
+          name="location"
         >
           <Input
-            placeholder="Enter contact person name"
+            placeholder="Enter Supplier location"
             prefix={<UserOutlined style={{ color: '#bfbfbf' }} />}
             style={{ borderRadius: 8 }}
           />
@@ -105,15 +105,12 @@ const SupplierModal = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
-              label={<Text strong style={{ color: '#0f2b2f' }}>Email</Text>}
-              name="email"
-              rules={[
-                { type: 'email', message: "Please enter a valid email" },
-              ]}
+              label={<Text strong style={{ color: '#0f2b2f' }}>Tax ID / VAT Number</Text>}
+              name="tax_id"
             >
               <Input
-                placeholder="email@example.com"
-                prefix={<MailOutlined style={{ color: '#bfbfbf' }} />}
+                placeholder="Enter tax identification number"
+                prefix={<IdcardOutlined style={{ color: '#bfbfbf' }} />}
                 style={{ borderRadius: 8 }}
               />
             </Form.Item>
@@ -121,7 +118,7 @@ const SupplierModal = ({
           <Col span={12}>
             <Form.Item
               label={<Text strong style={{ color: '#0f2b2f' }}>Phone</Text>}
-              name="phone"
+              name="contacts"
             >
               <Input
                 placeholder="Enter phone number"
@@ -143,16 +140,7 @@ const SupplierModal = ({
           />
         </Form.Item>
 
-        <Form.Item
-          label={<Text strong style={{ color: '#0f2b2f' }}>Tax ID / VAT Number</Text>}
-          name="tax_id"
-        >
-          <Input
-            placeholder="Enter tax identification number"
-            prefix={<IdcardOutlined style={{ color: '#bfbfbf' }} />}
-            style={{ borderRadius: 8 }}
-          />
-        </Form.Item>
+
       </Form>
     </Modal>
   );
