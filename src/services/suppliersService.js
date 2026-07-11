@@ -1,17 +1,39 @@
 import { apiClient } from './apiClient';
-import { API_ROUTES } from '../config/apiRoutes';
+import { appConfig } from '../config/appConfig';
 
 export const suppliersService = {
-  list: async () => {
-    const { data } = await apiClient.get(API_ROUTES.suppliers.list);
-    return data;
-  },
+   list: async () => {
+     const response = await apiClient.get(appConfig.apiEndpoints.supplier.index);
+     return response.data;
+   },
+
   getById: async (supplierId) => {
-    const { data } = await apiClient.get(API_ROUTES.suppliers.detail(supplierId));
-    return data;
+    const response = await apiClient.get(
+      `${appConfig.apiEndpoints.supplier.show}${supplierId}`
+    );
+    return response.data;
   },
+
+  create: async (payload) => {
+    const response = await apiClient.post(
+      appConfig.apiEndpoints.supplier.store,
+      payload
+    );
+    return response.data;
+  },
+
   update: async (supplierId, payload) => {
-    const { data } = await apiClient.put(API_ROUTES.suppliers.detail(supplierId), payload);
-    return data;
+    const response = await apiClient.put(
+      `${appConfig.apiEndpoints.supplier.update}${supplierId}`,
+      payload
+    );
+    return response.data;
+  },
+
+  delete: async (supplierId) => {
+    const response = await apiClient.delete(
+      `${appConfig.apiEndpoints.supplier.destroy}${supplierId}`
+    );
+    return response.data;
   },
 };
