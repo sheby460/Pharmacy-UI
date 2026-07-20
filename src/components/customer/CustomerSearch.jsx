@@ -2,7 +2,7 @@ import React from "react";
 import { Input, Button, Space, Tooltip, Flex } from "antd";
 import { SearchOutlined, ReloadOutlined, PlusOutlined } from "@ant-design/icons";
 
-const SupplierSearch = ({
+const CustomerSearch = ({
   searchText,
   onSearchChange,
   onRefresh,
@@ -12,7 +12,7 @@ const SupplierSearch = ({
   return (
     <Flex justify="space-between" align="center" style={{ marginBottom: 16, flexWrap: 'wrap', gap: 12 }}>
       <Input
-        placeholder="Search suppliers by name, email, or phone..."
+        placeholder="Search customers by name, email, or phone..."
         prefix={<SearchOutlined style={{ color: '#bfbfbf' }} />}
         value={searchText}
         onChange={(e) => onSearchChange(e.target.value)}
@@ -40,11 +40,11 @@ const SupplierSearch = ({
             boxShadow: '0 2px 8px rgba(14, 110, 114, 0.3)',
           }}
         >
-          Add Supplier
+          Add Customer
         </Button>
       </Space>
     </Flex>
   );
 };
 
-export default SupplierSearch;
+export default CustomerSearch;

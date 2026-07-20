@@ -14,5 +14,12 @@ export const appConfig = {
       update: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_UPDATE,
       destroy: process.env.REACT_APP_API_ENDPOINT_SUPPLIER_DESTROY,
     },
+    customer: {
+      index: process.env.REACT_APP_API_ENDPOINT_CUSTOMER_INDEX,
+      show: process.env.REACT_APP_API_ENDPOINT_CUSTOMER_SHOW,
+      store: process.env.REACT_APP_API_ENDPOINT_CUSTOMER_STORE,
+      update: process.env.REACT_APP_API_ENDPOINT_CUSTOMER_UPDATE,
+      destroy: process.env.REACT_APP_API_ENDPOINT_CUSTOMER_DESTROY, 
+    }
   }
 };

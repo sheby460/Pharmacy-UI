@@ -19,6 +19,7 @@ const menuItems = [
   { key: '/dashboard', icon: <AppstoreOutlined />, label: 'Dashboard' },
   { key: '/drugs', icon: <ClusterOutlined />, label: 'Drugs' },
   { key: '/suppliers', icon: <TeamOutlined />, label: 'Suppliers' },
+  { key: '/customers', icon: <UserOutlined />, label: 'Customers' },
   { key: '/purchases', icon: <IdcardOutlined />, label: 'Purchases' },
   { key: '/sales', icon: <UserOutlined />, label: 'Sales' },
   { key: '/reports', icon: <SafetyCertificateOutlined />, label: 'Reports' },

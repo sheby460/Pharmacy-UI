@@ -9,22 +9,22 @@ import {
 
 const { Text } = Typography;
 
-const SupplierModal = ({
+const CustomerModal = ({
   isOpen,
   onClose,
   onSubmit,
-  editingSupplier,
+  editingCustomer,
   loading,
 }) => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    if (editingSupplier) {
-      form.setFieldsValue(editingSupplier);
+    if (editingCustomer) {
+      form.setFieldsValue(editingCustomer);
     } else {
       form.resetFields();
     }
-  }, [editingSupplier, isOpen, form]);
+  }, [editingCustomer, isOpen, form]);
 
   const handleOk = async () => {
     try {
@@ -44,13 +44,13 @@ const SupplierModal = ({
     <Modal
       title={
         <div style={{ fontSize: 20, fontFamily: 'Fraunces, serif', color: '#0f2b2f' }}>
-          {editingSupplier ? "Edit Supplier" : "Add New Supplier"}
+          {editingCustomer ? "Edit Customer" : "Add New Customer"}
         </div>
       }
       open={isOpen}
       onOk={handleOk}
       onCancel={handleCancel}
-      okText={editingSupplier ? "Update Supplier" : "Add Supplier"}
+      okText={editingCustomer ? "Update Customer" : "Add Customer"}
       cancelText="Cancel"
       confirmLoading={loading}
       width={560}
@@ -75,44 +75,33 @@ const SupplierModal = ({
         requiredMark="optional"
       >
         <Form.Item
-          label={<Text strong style={{ color: '#0f2b2f' }}>Supplier Name</Text>}
-          name="supplier_name"
+          label={<Text strong style={{ color: '#0f2b2f' }}>Customer Name</Text>}
+          name="customer_name"
           rules={[
-            { required: true, message: "Please enter supplier name" },
+            { required: true, message: "Please enter customer name" },
             { max: 100, message: "Name cannot exceed 100 characters" },
           ]}
         >
           <Input
-            placeholder="Enter supplier name"
+            placeholder="Enter customer name"
             prefix={<ShopOutlined style={{ color: '#bfbfbf' }} />}
             style={{ borderRadius: 8 }}
           />
         </Form.Item>
 
         <Form.Item
-          label={<Text strong style={{ color: '#0f2b2f' }}>Supplier Location</Text>}
-          name="location"
+          label={<Text strong style={{ color: '#0f2b2f' }}>Customer Contacts</Text>}
+          name="contacts"
         >
           <Input
-            placeholder="Enter Supplier location"
+            placeholder="Enter customer contacts"
             prefix={<UserOutlined style={{ color: '#bfbfbf' }} />}
             style={{ borderRadius: 8 }}
           />
         </Form.Item>
 
         <Row gutter={16}>
-          <Col span={12}>
-            <Form.Item
-              label={<Text strong style={{ color: '#0f2b2f' }}>Tax ID / VAT Number</Text>}
-              name="tax_id"
-            >
-              <Input
-                placeholder="Enter tax identification number"
-                prefix={<IdcardOutlined style={{ color: '#bfbfbf' }} />}
-                style={{ borderRadius: 8 }}
-              />
-            </Form.Item>
-          </Col>
+        
           <Col span={12}>
             <Form.Item
               label={<Text strong style={{ color: '#0f2b2f' }}>Phone</Text>}
@@ -132,7 +121,7 @@ const SupplierModal = ({
           name="address"
         >
           <Input.TextArea
-            placeholder="Enter supplier address"
+            placeholder="Enter  address"
             rows={3}
             style={{ borderRadius: 8 }}
           />
@@ -144,4 +133,4 @@ const SupplierModal = ({
   );
 };
 
-export default SupplierModal;
+export default CustomerModal;

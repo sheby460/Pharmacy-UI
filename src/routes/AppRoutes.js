@@ -9,6 +9,7 @@ import Sales from '../pages/Sales';
 import Reports from '../pages/Reports';
 import Purchase from '../pages/purchase';
 import { useAuth } from "../context/AuthContext";
+import Customers from '../pages/Customers';
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -27,6 +28,7 @@ const AppRoutes = () => {
         <Route path="suppliers" element={<Suppliers />} />
         <Route path="purchases" element={<Purchase />} />
         <Route path="sales" element={<Sales />} />
+        <Route path="customers" element={<Customers />} />
         <Route path="reports" element={<Reports />} />
       </Route>
     </Routes>

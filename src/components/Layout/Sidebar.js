@@ -33,6 +33,11 @@ const Sidebar = ({ collapsed }) => {
       label: 'Suppliers',
     },
     {
+      key: '/customers',
+      icon: <UserOutlined />,
+      label: 'Customers',
+    },
+    {
       key: '/purchases',
       icon: <UserOutlined />,
       label: 'Purchases',
